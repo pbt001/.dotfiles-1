@@ -7,12 +7,12 @@ base05 = "#f8f8f2"
 
 # Screen backlight info
 # requires light to change the backlight brightness with the scollwheel.
-status.register("backlight",
-                backlight="intel_backlight",
-                format=" {percentage}% ",
-                on_upscroll="light -A 1",
-                on_downscroll="light -U 1",
-                interval=1,)
+#status.register("backlight",
+#                backlight="radeon_bl0",
+#                format=" {percentage}% ",
+#                on_upscroll="light -A 1",
+#                on_downscroll="light -U 1",
+#                interval=1,)
 
 # Shows pulseaudio default sink volume
 #
@@ -54,20 +54,20 @@ status.register("uptime",
 
 # This would look like this:
 # Discharging 6h:51m
-status.register("battery",
-                format="{status} {remaining:%E%hh:%Mm}",
-                alert=True,
-                alert_percentage=30,
-                critical_level_percentage=30,
-                interval=1,
-                # $base05
-                full_color=base05,
-                charging_color=base05,
-                status={
-                    "DIS":  "",
-                    "CHR":  "",
-                    "FULL": "",
-                },)
+#status.register("battery",
+#                format="{status} {remaining:%E%hh:%Mm}",
+#                alert=True,
+#                alert_percentage=30,
+#                critical_level_percentage=30,
+#                interval=1,
+#                # $base05
+#                full_color=base05,
+#                charging_color=base05,
+#                status={
+#                    "DIS":  "",
+#                    "CHR":  "",
+#                    "FULL": "",
+#                },)
 
 
 # Shows the average load of the last minute and the last 5 minutes
@@ -109,21 +109,11 @@ status.register("temp",
 #
 # Note: the network module requires PyPI package netifaces
 status.register("network",
-                interface="enp4s0",
+                interface="eno1",
                 # $base05
                 color_up=base05,
                 start_color=base05,
                 format_up="{v4cidr}  {bytes_recv}KiB  {bytes_sent}KiB",
-                format_down="",
-                interval=1,)
-
-# Note: requires both netifaces and basiciw (for essid and quality)
-status.register("network",
-                interface="wlp5s0",
-                # $base05
-                color_up=base05,
-                start_color=base05,
-                format_up=" {essid} {quality}%  {bytes_recv}KiB  {bytes_sent}KiB",
                 format_down="",
                 interval=1,)
 
